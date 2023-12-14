@@ -1,0 +1,26 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "",
+  "Resources": {
+    "HelloWorld": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "CodeUri": "./lambda",
+        "Handler": "hello-word.handler",
+        "Runtime": "nodejs18.x",
+        "Events": {
+          "HelloWorldEvent0": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/hello-world",
+              "Method": "get"
+            }
+          }
+        },
+        "Timeout": 60,
+        "MemorySize": 1024
+      }
+    }
+  }
+}
